@@ -79,7 +79,6 @@
       border-top: $border;
       border-left: $border;
       border-bottom: $border;
-      cursor: pointer;
 
       &:last-child {
         border-right: $border;
@@ -88,6 +87,7 @@
 
     &.word {
       font-size: 2.5em;
+      cursor: pointer;
 
       li.highlight {
         color: black;
@@ -97,6 +97,7 @@
     }
 
     &.alphabet {
+      cursor: default;
 
       li.highlight {
         color: black;
