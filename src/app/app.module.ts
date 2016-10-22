@@ -6,12 +6,14 @@ import {AppComponent} from "./app.component";
 import {ShiftByNComponent} from "./shift-by-n/shift-by-n.component";
 import {ShiftByNService} from "./shift-by-n.service";
 import { SplitPipe } from './split.pipe';
+import { BottomLinksComponent } from './bottom-links/bottom-links.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         ShiftByNComponent,
         SplitPipe,
+        BottomLinksComponent,
     ],
     imports: [
         BrowserModule,

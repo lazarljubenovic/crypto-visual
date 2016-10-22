@@ -1,0 +1,41 @@
+:host {
+  display: block;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  font-family: monospace;
+  padding: 1ex 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+li {
+  display: inline-flex;
+  align-items: center;
+
+  i {
+    display: inline-block;
+    margin-right: .5em;
+    color: rgba(black, .66);
+  }
+
+  span {
+    display: inline-block;
+
+    a {
+      color: rgba(black, .5);
+      text-decoration: none;
+      cursor: pointer;
+
+      &:hover,
+      &:focus {
+        color: rgba(black, .8);
+        text-decoration: underline;
+      }
+    }
+  }
+}
