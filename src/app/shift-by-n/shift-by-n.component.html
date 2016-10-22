@@ -1,6 +1,13 @@
 <div id="side-panel">
-  <input type="number" [formControl]="key">
-  <input type="text" [formControl]="plaintext">
+  <label>
+    <span>Plaintext</span>
+    <input id="plaintext" type="text" [formControl]="plaintext">
+  </label>
+
+  <label>
+    <span>Key (offset)</span>
+    <input type="number" [formControl]="key">
+  </label>
 </div>
 
 <div id="main-panel">
