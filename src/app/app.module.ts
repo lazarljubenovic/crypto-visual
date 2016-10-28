@@ -8,6 +8,8 @@ import {ShiftByNService} from "./shift-by-n.service";
 import {SplitPipe} from "./split.pipe";
 import {BottomLinksComponent} from "./bottom-links/bottom-links.component";
 import {OptionsPanelComponent} from "./options-panel/options-panel.component";
+import { SimpleSubstitutionComponent } from './simple-substitution/simple-substitution.component';
+import {SimpleSubstitutionService} from "./simple-substitution.service";
 
 @NgModule({
     declarations: [
@@ -16,6 +18,7 @@ import {OptionsPanelComponent} from "./options-panel/options-panel.component";
         SplitPipe,
         BottomLinksComponent,
         OptionsPanelComponent,
+        SimpleSubstitutionComponent,
     ],
     imports: [
         BrowserModule,
@@ -25,6 +28,7 @@ import {OptionsPanelComponent} from "./options-panel/options-panel.component";
     ],
     providers: [
         ShiftByNService,
+        SimpleSubstitutionService,
     ],
     bootstrap: [AppComponent]
 })
