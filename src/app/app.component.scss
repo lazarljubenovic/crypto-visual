@@ -1,0 +1,26 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: mix(black, white, 5%);
+  z-index: 100;
+  border-bottom: solid 1px mix(black, white, 10%);
+  font-family: monospace;
+  text-transform: uppercase;
+  color: rgba(black, .8);
+
+  label {
+    display: inline-block;
+    padding: 1em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba(white, .5);
+    }
+  }
+
+  input {
+    display: none;
+  }
+}

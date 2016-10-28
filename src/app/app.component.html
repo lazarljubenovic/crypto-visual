@@ -1,3 +1,17 @@
-<!--<crv-shift-by-n></crv-shift-by-n>-->
-<crv-simple-substitution></crv-simple-substitution>
+<nav>
+  <form>
+    <label>
+      <input type="radio" name="nav" value="0" [(ngModel)]="currentTab">
+      <span>Shift By N</span>
+    </label>
+    <label>
+      <input type="radio" name="nav" value="1" [(ngModel)]="currentTab">
+      <span>Simple Substitution</span>
+    </label>
+  </form>
+</nav>
+
+<crv-shift-by-n *ngIf="currentTab == 0"></crv-shift-by-n>
+<crv-simple-substitution *ngIf="currentTab == 1"></crv-simple-substitution>
+
 <crv-bottom-links></crv-bottom-links>
