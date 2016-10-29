@@ -1,0 +1,32 @@
+<crv-options-panel>
+  <label>
+    <span>Plaintext</span>
+    <textarea rows="10" [formControl]="plaintext"></textarea>
+  </label>
+
+  <label>
+    <span>Key (codebook)</span>
+    <textarea rows="20" [formControl]="codebook"></textarea>
+  </label>
+</crv-options-panel>
+
+<div id="main-panel">
+
+  <div id="plaintext" class="text">
+    {{ plaintext.value }}
+  </div>
+
+  <div id="codebook">
+    <dl>
+      <ng-container *ngFor="let word of map$ | async">
+        <dt>{{ word[0] }}</dt>
+        <dd>{{ word[1] }}</dd>
+      </ng-container>
+    </dl>
+  </div>
+
+  <div id="ciphertext" class="text">
+    {{ ciphertext$ | async }}
+  </div>
+
+</div>

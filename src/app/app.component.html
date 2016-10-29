@@ -8,10 +8,15 @@
       <input type="radio" name="nav" value="1" [(ngModel)]="currentTab">
       <span>Simple Substitution</span>
     </label>
+    <label>
+      <input type="radio" name="nav" value="2" [(ngModel)]="currentTab">
+      <span>Codebook Cipher</span>
+    </label>
   </form>
 </nav>
 
 <crv-shift-by-n *ngIf="currentTab == 0"></crv-shift-by-n>
 <crv-simple-substitution *ngIf="currentTab == 1"></crv-simple-substitution>
+<crv-codebook-cypher *ngIf="currentTab == 2"></crv-codebook-cypher>
 
 <crv-bottom-links></crv-bottom-links>

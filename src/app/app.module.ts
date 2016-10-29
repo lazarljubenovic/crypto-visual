@@ -8,8 +8,10 @@ import {ShiftByNService} from "./shift-by-n.service";
 import {SplitPipe} from "./split.pipe";
 import {BottomLinksComponent} from "./bottom-links/bottom-links.component";
 import {OptionsPanelComponent} from "./options-panel/options-panel.component";
-import { SimpleSubstitutionComponent } from './simple-substitution/simple-substitution.component';
+import {SimpleSubstitutionComponent} from "./simple-substitution/simple-substitution.component";
 import {SimpleSubstitutionService} from "./simple-substitution.service";
+import {CodebookCypherComponent} from "./codebook-cypher/codebook-cypher.component";
+import {CodebookCipherService} from "./codebook-cipher.service";
 
 @NgModule({
     declarations: [
@@ -19,6 +21,7 @@ import {SimpleSubstitutionService} from "./simple-substitution.service";
         BottomLinksComponent,
         OptionsPanelComponent,
         SimpleSubstitutionComponent,
+        CodebookCypherComponent,
     ],
     imports: [
         BrowserModule,
@@ -29,6 +32,7 @@ import {SimpleSubstitutionService} from "./simple-substitution.service";
     providers: [
         ShiftByNService,
         SimpleSubstitutionService,
+        CodebookCipherService,
     ],
     bootstrap: [AppComponent]
 })
