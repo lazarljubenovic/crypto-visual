@@ -1,0 +1,54 @@
+<crv-options-panel>
+  <label>
+    <span>Plaintext</span>
+    <input type="text" [formControl]="plaintext">
+  </label>
+
+  <label>
+    <input type="checkbox" [formControl]="rowsFirst">
+    <span>Rows first</span>
+  </label>
+
+  <label>
+    <span>First permutation</span>
+    <input type="text" [formControl]="permutation1">
+  </label>
+
+  <label>
+    <span>Second permutation</span>
+    <input type="text" [formControl]="permutation2">
+  </label>
+</crv-options-panel>
+
+<div id="main-panel">
+
+  <crv-letterify [word]="plaintext.value"
+                 [highlight]="plaintextHighlightIndex$ | async"
+                 (highlight)="onHighlightFromPlaintext($event)"
+  ></crv-letterify>
+
+
+  <div class="matrices">
+    <crv-matrix [matrix]="afterTransformingToMatrix$ | async"
+                [colLabels]="permutation0ColLabels$ | async"
+                [rowLabels]="permutation0RowLabels$ | async"
+                [highlight]="cellPositionMatrix0$ | async"
+    ></crv-matrix>
+    <crv-matrix [matrix]="afterFirstPermutation$ | async"
+                [colLabels]="permutation1ColLabels$ | async"
+                [rowLabels]="permutation1RowLabels$ | async"
+                [highlight]="cellPositionMatrix1$ | async"
+    ></crv-matrix>
+    <crv-matrix [matrix]="afterSecondPermutation$ | async"
+                [colLabels]="permutation2ColLabels$ | async"
+                [rowLabels]="permutation2RowLabels$ | async"
+                [highlight]="cellPositionMatrix2$ | async"
+    ></crv-matrix>
+  </div>
+
+  <crv-letterify [word]="ciphertext$ | async"
+                 [highlight]="ciphertextHighlightIndex$ | async"
+                 (highlight)="onHighlightFromCipherText($event)"
+  ></crv-letterify>
+
+</div>

@@ -12,6 +12,11 @@ import {SimpleSubstitutionComponent} from "./simple-substitution/simple-substitu
 import {SimpleSubstitutionService} from "./simple-substitution.service";
 import {CodebookCypherComponent} from "./codebook-cypher/codebook-cypher.component";
 import {CodebookCipherService} from "./codebook-cipher.service";
+import {DoubleTranspositionComponent} from "./double-transposition/double-transposition.component";
+import {DoubleTranspositionService} from "./double-transposition.service";
+import { MatrixComponent } from './matrix/matrix.component';
+import { MatrixWithLabelPipe } from './matrix-with-label.pipe';
+import { LetterifyComponent } from './letterify/letterify.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +27,10 @@ import {CodebookCipherService} from "./codebook-cipher.service";
         OptionsPanelComponent,
         SimpleSubstitutionComponent,
         CodebookCypherComponent,
+        DoubleTranspositionComponent,
+        MatrixComponent,
+        MatrixWithLabelPipe,
+        LetterifyComponent,
     ],
     imports: [
         BrowserModule,
@@ -33,6 +42,7 @@ import {CodebookCipherService} from "./codebook-cipher.service";
         ShiftByNService,
         SimpleSubstitutionService,
         CodebookCipherService,
+        DoubleTranspositionService,
     ],
     bootstrap: [AppComponent]
 })

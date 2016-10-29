@@ -12,11 +12,16 @@
       <input type="radio" name="nav" value="2" [(ngModel)]="currentTab">
       <span>Codebook Cipher</span>
     </label>
+    <label>
+      <input type="radio" name="nav" value="3" [(ngModel)]="currentTab">
+      <span>Double Transposition</span>
+    </label>
   </form>
 </nav>
 
 <crv-shift-by-n *ngIf="currentTab == 0"></crv-shift-by-n>
 <crv-simple-substitution *ngIf="currentTab == 1"></crv-simple-substitution>
 <crv-codebook-cypher *ngIf="currentTab == 2"></crv-codebook-cypher>
+<crv-double-transposition *ngIf="currentTab == 3"></crv-double-transposition>
 
 <crv-bottom-links></crv-bottom-links>
