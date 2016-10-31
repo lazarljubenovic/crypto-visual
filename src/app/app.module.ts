@@ -17,6 +17,8 @@ import {DoubleTranspositionService} from "./double-transposition.service";
 import { MatrixComponent } from './matrix/matrix.component';
 import { MatrixWithLabelPipe } from './matrix-with-label.pipe';
 import { LetterifyComponent } from './letterify/letterify.component';
+import { Rc4KsaComponent } from './rc4-ksa/rc4-ksa.component';
+import { Rc4KsaSingleStateComponent } from './rc4-ksa-single-state/rc4-ksa-single-state.component';
 
 @NgModule({
     declarations: [
@@ -31,6 +33,8 @@ import { LetterifyComponent } from './letterify/letterify.component';
         MatrixComponent,
         MatrixWithLabelPipe,
         LetterifyComponent,
+        Rc4KsaComponent,
+        Rc4KsaSingleStateComponent,
     ],
     imports: [
         BrowserModule,

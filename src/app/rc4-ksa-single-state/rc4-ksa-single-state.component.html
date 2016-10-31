@@ -1,0 +1,20 @@
+
+
+<pre id="variable-states">
+i     = {{state.i}}
+old_j = {{state.jExpression.previousJ}}
+S[i]  = {{state.jExpression.sI}}
+key   = {{state.jExpression.keyI}}
+j     = {{state.jExpression.previousJ}} + {{state.jExpression.sI}} + {{state.jExpression.keyI}} = {{state.j}}
+</pre>
+
+<ul id="table">
+  <li *ngFor="let i of initPermutation(state.n)">
+    <span>{{i}}</span>
+    <ul>
+      <li *ngFor="let history of state.historyS[i]">
+        {{history}}
+      </li>
+    </ul>
+  </li>
+</ul>
