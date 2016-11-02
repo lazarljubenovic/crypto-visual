@@ -1,12 +1,22 @@
 
 
-<pre id="variable-states">
+<div id="calculations">
+  <ul>
+    <li *ngFor="let chunk of state.key; let i = index"
+        [class.current]="i % state.key.length == state.i % state.key.length"
+    >{{chunk}}</li>
+  </ul>
+
+  <pre id="variable-states">
 i     = {{state.i}}
 old_j = {{state.jExpression.previousJ}}
 S[i]  = {{state.jExpression.sI}}
 key   = {{state.jExpression.keyI}}
 j     = {{state.jExpression.previousJ}} + {{state.jExpression.sI}} + {{state.jExpression.keyI}} = {{state.j}}
-</pre>
+  </pre>
+</div>
+
+
 
 <ul id="table">
   <li *ngFor="let i of initPermutation(state.n)">
