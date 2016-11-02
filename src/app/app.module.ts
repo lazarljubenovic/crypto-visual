@@ -19,6 +19,8 @@ import { MatrixWithLabelPipe } from './matrix-with-label.pipe';
 import { LetterifyComponent } from './letterify/letterify.component';
 import { Rc4KsaComponent } from './rc4-ksa/rc4-ksa.component';
 import { Rc4KsaSingleStateComponent } from './rc4-ksa-single-state/rc4-ksa-single-state.component';
+import { Rs4PrgaComponent } from './rs4-prga/rs4-prga.component';
+import { Rc4PrgaSingleStateComponent } from './rc4-prga-single-state/rc4-prga-single-state.component';
 
 @NgModule({
     declarations: [
@@ -35,6 +37,8 @@ import { Rc4KsaSingleStateComponent } from './rc4-ksa-single-state/rc4-ksa-singl
         LetterifyComponent,
         Rc4KsaComponent,
         Rc4KsaSingleStateComponent,
+        Rs4PrgaComponent,
+        Rc4PrgaSingleStateComponent,
     ],
     imports: [
         BrowserModule,

@@ -20,6 +20,10 @@
       <input type="radio" name="nav" value="4" [(ngModel)]="currentTab">
       <span>RC4 (KSA)</span>
     </label>
+    <label>
+      <input type="radio" name="nav" value="5" [(ngModel)]="currentTab">
+      <span>RC4 (PRGA)</span>
+    </label>
   </form>
 </nav>
 
@@ -28,5 +32,6 @@
 <crv-codebook-cypher *ngIf="currentTab == 2"></crv-codebook-cypher>
 <crv-double-transposition *ngIf="currentTab == 3"></crv-double-transposition>
 <crv-rc4-ksa *ngIf="currentTab == 4"></crv-rc4-ksa>
+<crv-rs4-prga *ngIf="currentTab == 5"></crv-rs4-prga>
 
 <crv-bottom-links></crv-bottom-links>

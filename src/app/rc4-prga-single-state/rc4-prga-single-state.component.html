@@ -1,0 +1,40 @@
+<div id="calculations" [style.display]="state.i === 0 ? 'none' : 'block'">
+
+  <table>
+    <tr>
+      <td>m = </td>
+      <td></td>
+      <td *ngFor="let x1 of state.xor1">{{x1}}</td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>XOR</td>
+      <td *ngFor="let x2 of state.xor2">{{x2}}</td>
+    </tr>
+    <tr>
+      <td>c = </td>
+      <td></td>
+      <td *ngFor="let r of state.result">{{r}}</td>
+    </tr>
+  </table>
+
+  <pre id="variable-states">
+i     = {{state.i}}
+old_j = {{state.jExpression.previousJ}}
+S[i]  = {{state.jExpression.sI}}
+j     = {{state.jExpression.previousJ}} + {{state.jExpression.sI}} = {{state.j}}
+out   = S[{{state.S[state.i]}} + {{state.S[state.j]}}] = {{state.S[(state.S[state.i] + state.S[state.j]) % (state.S.length)]}}
+  </pre>
+</div>
+
+
+<ul id="table">
+  <li *ngFor="let i of initPermutation(state.n)">
+    <span>{{i}}</span>
+    <ul>
+      <li *ngFor="let history of state.historyS[i]">
+        {{history}}
+      </li>
+    </ul>
+  </li>
+</ul>
