@@ -1,0 +1,16 @@
+:host {
+  display: block;
+}
+
+table {
+  text-align: center;
+
+  td.col-label,
+  td.row-label {
+    color: grey;
+  }
+
+  td.highlight {
+    color: red;
+  }
+}

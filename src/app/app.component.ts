@@ -7,6 +7,6 @@ import {Component} from "@angular/core";
 })
 export class AppComponent {
 
-    public currentTab: number = 5;
+    public currentTab: number = 6;
 
 }

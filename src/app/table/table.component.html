@@ -1,0 +1,9 @@
+<table>
+  <tr *ngFor="let row of data | getMatrix : rowLabels : colLabels; let i = index">
+    <td *ngFor="let cell of row; let j = index"
+        [class.col-label]="colLabels && i == 0"
+        [class.row-label]="rowLabels && j == 0"
+        [class.highlight]="isHighlighted([i, j])"
+    >{{ cell }}</td>
+  </tr>
+</table>

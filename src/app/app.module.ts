@@ -21,6 +21,8 @@ import { Rc4KsaComponent } from './rc4-ksa/rc4-ksa.component';
 import { Rc4KsaSingleStateComponent } from './rc4-ksa-single-state/rc4-ksa-single-state.component';
 import { Rs4PrgaComponent } from './rs4-prga/rs4-prga.component';
 import { Rc4PrgaSingleStateComponent } from './rc4-prga-single-state/rc4-prga-single-state.component';
+import {TableModule} from "./table/table.module";
+import {KnapsackModule} from "./knapsack/knapsack.module";
 
 @NgModule({
     declarations: [
@@ -45,6 +47,7 @@ import { Rc4PrgaSingleStateComponent } from './rc4-prga-single-state/rc4-prga-si
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
+        KnapsackModule,
     ],
     providers: [
         ShiftByNService,
