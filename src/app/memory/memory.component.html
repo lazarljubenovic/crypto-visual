@@ -1,0 +1,5 @@
+<crv-table [data]="memoryDump | memory"
+           [highlights]="highlightRanges | highlights"
+           [colLabels]="memoryDump | memory | flatten | length | label : 'col'"
+           [rowLabels]="memoryDump | memory | flatten | length | label : 'row'"
+></crv-table>
