@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let stack of data; let index = index"
+      (mouseover)="focus$(index)"
+      [class.highlight]="highlight == index"
+  >
+    <span *ngFor="let cell of stack">{{cell}}</span>
+  </li>
+</ul>
