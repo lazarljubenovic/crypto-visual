@@ -8,11 +8,10 @@ import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
 export class CorrespondencesComponent implements OnInit {
 
     @Input()
-    public data: any[][] = 'abcdefghijklmnopqrstuvwxyz'.split('')
-        .map(letter => [letter.charCodeAt(0).toString(2), letter].reverse());
+    public data: any[][] = [];
 
     @Input()
-    public highlight: number = 4;
+    public highlight: number;
 
     @Output()
     public focus: EventEmitter<{index: number, data: any}> = new EventEmitter<any>();

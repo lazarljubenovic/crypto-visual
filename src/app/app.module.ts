@@ -23,6 +23,7 @@ import { Rs4PrgaComponent } from './rs4-prga/rs4-prga.component';
 import { Rc4PrgaSingleStateComponent } from './rc4-prga-single-state/rc4-prga-single-state.component';
 import {TableModule} from "./table/table.module";
 import {KnapsackModule} from "./knapsack/knapsack.module";
+import {AsciiTextModule} from "./ascii-text/ascii-text.module";
 
 @NgModule({
     declarations: [
