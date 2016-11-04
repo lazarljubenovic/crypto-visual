@@ -24,6 +24,7 @@ import { Rc4PrgaSingleStateComponent } from './rc4-prga-single-state/rc4-prga-si
 import {TableModule} from "./table/table.module";
 import {KnapsackModule} from "./knapsack/knapsack.module";
 import {AsciiTextModule} from "./ascii-text/ascii-text.module";
+import {OptionsPanelModule} from "./options-panel/options-panel.module";
 
 @NgModule({
     declarations: [
@@ -31,7 +32,6 @@ import {AsciiTextModule} from "./ascii-text/ascii-text.module";
         ShiftByNComponent,
         SplitPipe,
         BottomLinksComponent,
-        OptionsPanelComponent,
         SimpleSubstitutionComponent,
         CodebookCypherComponent,
         DoubleTranspositionComponent,
@@ -49,6 +49,7 @@ import {AsciiTextModule} from "./ascii-text/ascii-text.module";
         ReactiveFormsModule,
         HttpModule,
         KnapsackModule,
+        OptionsPanelModule,
     ],
     providers: [
         ShiftByNService,

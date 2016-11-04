@@ -8,7 +8,10 @@ import {Component, OnInit, Input} from "@angular/core";
 export class AsciiTextComponent implements OnInit {
 
     @Input()
-    public data = 'attack at dawn';
+    public data;
+
+    @Input()
+    public highlightIndex;
 
     constructor() {
     }

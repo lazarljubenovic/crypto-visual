@@ -1,11 +1,25 @@
-<!--<crv-table [data]="[[0, 1, 2], [3, 4, 5]]"-->
-           <!--[colLabels]="['A', 'B', 'C']"-->
-           <!--[rowLabels]="['a', 'b']"-->
-           <!--[highlights]="[[0, 0]]"-->
-<!--&gt;</crv-table>-->
+<crv-options-panel>
+  <label>
+    <span>Text</span>
+    <textarea rows="10" [formControl]="plaintext"></textarea>
+  </label>
+  <label>
+    <span>Multiplier</span>
+    <input type="number" [formControl]="multiplier">
+  </label>
+  <label>
+    <span>Superincreasing array</span>
+    <input type="text" [formControl]="superincreasing">
+  </label>
+  <label>
+    <span>Modulo</span>
+    <input type="number" [formControl]="modulo">
+  </label>
+</crv-options-panel>
 
-<!--<crv-correspondences></crv-correspondences>-->
-
-<!--<crv-memory></crv-memory>-->
-
-<crv-ascii-text></crv-ascii-text>
+<div id="main-panel">
+  <crv-array [data]="superincreasing$ | async"></crv-array>
+  <crv-array [data]="publicKey$ | async"></crv-array>
+  <crv-ascii-text [data]="plaintext.value"></crv-ascii-text>
+  <crv-memory [memoryDump]="asciiPlaintext$ | async"></crv-memory>
+</div>
