@@ -8,6 +8,10 @@ import {AsciiTextModule} from "../ascii-text/ascii-text.module";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ArrayModule} from "../array/array.module";
+import {ArrayMapModule} from "../array-map/array-map.module";
+import {CiphertextBlockCalculationComponent} from "./ciphertext-block-calculation/ciphertext-block-calculation.component";
+import {UtilPipesModule} from "../util-pipes/util-pipes.module";
+import {KnapsackService} from "./knapsack.service";
 
 @NgModule({
     imports: [
@@ -20,9 +24,15 @@ import {ArrayModule} from "../array/array.module";
         AsciiTextModule,
         OptionsPanelModule,
         ArrayModule,
+        ArrayMapModule,
+        UtilPipesModule,
     ],
     declarations: [
         KnapsackComponent,
+        CiphertextBlockCalculationComponent,
+    ],
+    providers: [
+        KnapsackService,
     ],
     exports: [
         KnapsackComponent,

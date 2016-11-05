@@ -1,0 +1,15 @@
+:host {
+  display: block;
+}
+
+td {
+  text-align: center;
+
+  &:nth-child(odd) {
+    width: 3em;
+
+    &:last-child {
+      width: 4em;
+    }
+  }
+}

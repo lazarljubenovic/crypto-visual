@@ -1,0 +1,30 @@
+<table>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <ng-container *ngFor="let m of mask | binary | padStart : 8 : '0' | array">
+      <td>{{m}}</td>
+      <td>&nbsp;</td>
+    </ng-container>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <ng-container *ngFor="let pk of publicKey">
+      <td>{{pk}}</td>
+      <td>&nbsp;</td>
+    </ng-container>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>C</td>
+    <td>=</td>
+    <ng-container *ngFor="let c of cipherArray(mask | binary | padStart : 8 : '0' | array | mapNumber, publicKey); let last = last">
+      <td>{{c}}</td>
+      <td *ngIf="!last">+</td>
+    </ng-container>
+    <td>=</td>
+    <td>{{ciphertext(mask | binary | padStart : 8 : '0' | array | mapNumber, publicKey)}}</td>
+  </tr>
+</table>

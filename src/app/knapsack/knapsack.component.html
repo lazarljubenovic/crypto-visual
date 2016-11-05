@@ -18,8 +18,18 @@
 </crv-options-panel>
 
 <div id="main-panel">
-  <crv-array [data]="superincreasing$ | async"></crv-array>
-  <crv-array [data]="publicKey$ | async"></crv-array>
-  <crv-ascii-text [data]="plaintext.value"></crv-ascii-text>
-  <crv-memory [memoryDump]="asciiPlaintext$ | async"></crv-memory>
+  <crv-array-map [original]="superincreasing$ | async"
+                 [mapped]="publicKey$ | async"
+  ></crv-array-map>
+  <crv-ascii-text [data]="plaintext.value"
+                  (focus)="currentLetterIndex = $event"
+                  [highlightIndex]="currentLetterIndex"
+  ></crv-ascii-text>
+  <crv-ciphertext-block-calculation [mask]="(asciiPlaintext$ | async)[currentLetterIndex]"
+                                    [publicKey]="publicKey$ | async"
+  ></crv-ciphertext-block-calculation>
+  <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async] | transpose"
+                       [highlight]="currentLetterIndex"
+                       (focus)="currentLetterIndex = $event.index"
+  ></crv-correspondences>
 </div>
