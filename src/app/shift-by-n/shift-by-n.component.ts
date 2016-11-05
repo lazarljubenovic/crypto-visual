@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, BehaviorSubject} from "rxjs";
 import {ShiftByNService} from "./shift-by-n.service";
 import {FormControl} from "@angular/forms";
 
@@ -29,7 +29,16 @@ export class ShiftByNComponent implements OnInit {
         .startWith(this.key.value)
         .map(key => this.shiftByN.encrypt(this.alphabet.join(''), key).split(''));
 
-    public currentHighlightIndex: number = -1;
+    public currentHighlightIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
+
+    public currentHighlightedAlphabetIndex: Observable<number> = Observable.combineLatest(
+        this.plaintext.valueChanges.startWith(this.plaintext.value),
+        this.currentHighlightIndex$
+    )
+        .map(values => Object.assign({}, {plaintext: values[0], index: values[1]}))
+        .map(v => {
+            return this.alphabet.indexOf(v.plaintext[v.index]);
+        });
 
     constructor(public shiftByN: ShiftByNService) {
     }
