@@ -32,6 +32,10 @@ export class KnapsackService {
         }
     }
 
+    public getTransformedCiphertext(ciphertext: number, privateKey: number, modulo: number): number {
+        return ciphertext * privateKey % modulo;
+    }
+
     constructor() {
     }
 

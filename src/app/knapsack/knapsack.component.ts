@@ -1,6 +1,6 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl} from "@angular/forms";
-import {Observable} from "rxjs";
+import {Observable, Subject, BehaviorSubject} from "rxjs";
 import {KnapsackService} from "./knapsack.service";
 
 interface Inputs {
@@ -22,7 +22,7 @@ export class KnapsackComponent implements OnInit {
     public modulo: FormControl = new FormControl(491);
     public superincreasing: FormControl = new FormControl(`2 3 7 14 30 57 120 251`);
 
-    public currentLetterIndex: number = 0;
+    public currentLetterIndex$: Subject<number> = new BehaviorSubject<number>(0);
 
     public superincreasing$: Observable<number[]> = this.superincreasing.valueChanges
         .startWith(this.superincreasing.value)
@@ -58,6 +58,13 @@ export class KnapsackComponent implements OnInit {
     public privateKey$: Observable<number> = this.inputs$.map(v => {
         return this.algorithm.getPrivateKey(v.multiplier, v.modulo);
     });
+
+    public transformedCiphertext$: Observable<number> = Observable
+        .combineLatest(this.asciiPlaintext$, this.privateKey$, this.inputs$, this.currentLetterIndex$)
+        .map(v => {
+            return this.algorithm
+                .getTransformedCiphertext(v[0][v[3]], v[1], v[2].modulo);
+        });
 
     constructor(private algorithm: KnapsackService) {
     }

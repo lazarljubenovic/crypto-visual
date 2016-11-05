@@ -12,6 +12,7 @@ import {ArrayMapModule} from "../array-map/array-map.module";
 import {CiphertextBlockCalculationComponent} from "./ciphertext-block-calculation/ciphertext-block-calculation.component";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {KnapsackService} from "./knapsack.service";
+import { DecryptionBlockCalculationComponent } from './decryption-block-calculation/decryption-block-calculation.component';
 
 @NgModule({
     imports: [
@@ -30,6 +31,7 @@ import {KnapsackService} from "./knapsack.service";
     declarations: [
         KnapsackComponent,
         CiphertextBlockCalculationComponent,
+        DecryptionBlockCalculationComponent,
     ],
     providers: [
         KnapsackService,

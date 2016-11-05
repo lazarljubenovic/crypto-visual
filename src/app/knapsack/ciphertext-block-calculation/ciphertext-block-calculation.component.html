@@ -7,7 +7,7 @@
       <td *ngIf="!last">&nbsp;</td>
     </ng-container>
     <td>&nbsp;</td>
-    <td>(0x{{mask.toString(16).toUpperCase()}})</td>
+    <td>(0x{{mask | hexadecimal | uppercase}})</td>
   </tr>
   <tr>
     <td>J</td>

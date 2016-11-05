@@ -6,7 +6,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 export class BinaryPipe implements PipeTransform {
 
     transform(value: number): string {
-        return value.toString(2);
+        return value ? value.toString(2) : '';
     }
 
 }

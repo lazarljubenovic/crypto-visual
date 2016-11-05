@@ -22,15 +22,18 @@
                  [mapped]="publicKey$ | async"
   ></crv-array-map>
   <crv-ascii-text [data]="plaintext.value"
-                  (focus)="currentLetterIndex = $event"
-                  [highlightIndex]="currentLetterIndex"
+                  (focus)="currentLetterIndex$.next($event)"
+                  [highlightIndex]="currentLetterIndex$ | async"
   ></crv-ascii-text>
-  <crv-ciphertext-block-calculation [mask]="(asciiPlaintext$ | async)[currentLetterIndex]"
+  <crv-ciphertext-block-calculation [mask]="asciiPlaintext$ | async | get : (currentLetterIndex$ | async)"
                                     [publicKey]="publicKey$ | async"
   ></crv-ciphertext-block-calculation>
   <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async] | transpose"
-                       [highlight]="currentLetterIndex"
-                       (focus)="currentLetterIndex = $event.index"
+                       [highlight]="currentLetterIndex$ | async"
+                       (focus)="currentLetterIndex$.next($event.index)"
   ></crv-correspondences>
-  <div>im = {{privateKey$ | async}}</div>
+  <div>
+    <span>im = {{privateKey$ | async}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+    <span>TC = {{transformedCiphertext$ | async}}</span>
+  </div>
 </div>
