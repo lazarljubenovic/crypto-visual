@@ -7,6 +7,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {LetterifyModule} from "../letterify/letterify.module";
 import {RouterModule} from "@angular/router";
+import {CorrespondencesModule} from "../correspondences/correspondences.module";
 
 @NgModule({
     imports: [
@@ -15,6 +16,7 @@ import {RouterModule} from "@angular/router";
         OptionsPanelModule,
         UtilPipesModule,
         LetterifyModule,
+        CorrespondencesModule,
         RouterModule.forChild([{
             path: '',
             component: SimpleSubstitutionComponent,
