@@ -6,7 +6,7 @@ import {Pipe, PipeTransform} from "@angular/core";
 export class ArrayPipe implements PipeTransform {
 
     transform(value: any): any [] {
-        return Array.from(value);
+        return value ? Array.from(value) : [];
     }
 
 }
