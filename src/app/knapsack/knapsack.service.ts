@@ -1,5 +1,5 @@
 import {Injectable} from "@angular/core";
-import * as _ from 'lodash';
+import * as _ from "lodash";
 
 @Injectable()
 export class KnapsackService {
@@ -21,6 +21,15 @@ export class KnapsackService {
             .split('').map(letter => letter.charCodeAt(0))
             .map(p => _.padStart(p.toString(2), 8, '0').split('').map(Number))
             .map(block => this.encryptBlock(block, publicKey));
+    }
+
+    public getPrivateKey(multiplier: number, modulo: number): number {
+        for (let q = 0; q < multiplier; q++) {
+            let im = (q * modulo + 1) / multiplier;
+            if (im == Math.floor(im)) {
+                return im;
+            }
+        }
     }
 
     constructor() {

@@ -55,6 +55,10 @@ export class KnapsackComponent implements OnInit {
             return this.algorithm.encrypt(inputs.plaintext, publicKey);
         });
 
+    public privateKey$: Observable<number> = this.inputs$.map(v => {
+        return this.algorithm.getPrivateKey(v.multiplier, v.modulo);
+    });
+
     constructor(private algorithm: KnapsackService) {
     }
 
