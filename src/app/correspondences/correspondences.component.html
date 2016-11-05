@@ -3,6 +3,6 @@
       (mouseover)="focus$(index)"
       [class.highlight]="highlight == index"
   >
-    <span *ngFor="let cell of stack">{{cell}}</span>
+    <span *ngFor="let cell of stack">{{cell | spaceToNbsp}}</span>
   </li>
 </ul>
