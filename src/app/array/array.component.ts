@@ -10,6 +10,9 @@ export class ArrayComponent implements OnInit {
     @Input()
     public data: any[];
 
+    @Input()
+    public highlight: number = -1;
+
     @Output()
     public mouseover: EventEmitter<number> = new EventEmitter<number>();
 

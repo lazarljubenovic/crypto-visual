@@ -11,6 +11,10 @@ ul {
   li {
     margin-right: .5em;
 
+    &.highlight {
+      color: red;
+    }
+
     &:last-child {
       margin-right: 0;
     }
