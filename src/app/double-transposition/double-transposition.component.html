@@ -22,7 +22,10 @@
 
 <div id="main-panel">
 
-  <crv-array [data]="plaintext.value | array"></crv-array>
+  <crv-array [data]="plaintext.value | array"
+             [highlight]="plaintextHighlightIndex$ | async"
+             (focus)="plaintextHighlightIndex$.next($event)"
+  ></crv-array>
 
   <div class="matrices">
   </div>
@@ -45,6 +48,8 @@
     ></crv-table>
   </div>
 
-  <crv-array [data]="ciphertext$ | async | array"></crv-array>
+  <crv-array [data]="ciphertext$ | async | array"
+             [highlight]="ciphertextHighlightIndex$ | async"
+  ></crv-array>
 
 </div>
