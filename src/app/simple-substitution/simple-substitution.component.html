@@ -10,8 +10,16 @@
 </crv-options-panel>
 
 <div id="main-panel">
-  <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async | array] | transpose"></crv-correspondences>
-  <crv-correspondences [data]="[alphabet | array, mappedAlphabet$ | async | array] | transpose"></crv-correspondences>
+  <crv-correspondences
+          [data]="[plaintext.value | array, ciphertext$ | async | array] | transpose"
+          [highlight]="currentHighlightIndex$ | async"
+          (focus)="currentHighlightIndex$.next($event.index)"
+  ></crv-correspondences>
+
+  <crv-correspondences
+          [data]="[alphabet | array, mappedAlphabet$ | async | array] | transpose"
+          [highlight]="currentHighlightedAlphabetIndex | async"
+  ></crv-correspondences>
 </div>
 
 

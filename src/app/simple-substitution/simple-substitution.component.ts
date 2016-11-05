@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {Observable} from "rxjs";
+import {Observable, BehaviorSubject} from "rxjs";
 import {FormControl} from "@angular/forms";
 import {SimpleSubstitutionService} from "./simple-substitution.service";
 
@@ -56,7 +56,16 @@ m => u`);
         .map(string => this.simpleSubstitution.parseMap(string))
         .map(key => this.simpleSubstitution.encrypt(this.alphabet, key));
 
-    public currentHighlightIndex: number = -1;
+    public currentHighlightIndex$: BehaviorSubject<number> = new BehaviorSubject<number>(-1);
+
+    public currentHighlightedAlphabetIndex: Observable<number> = Observable.combineLatest(
+        this.plaintext.valueChanges.startWith(this.plaintext.value),
+        this.currentHighlightIndex$
+    )
+        .map(values => Object.assign({}, {plaintext: values[0], index: values[1]}))
+        .map(v => {
+            return this.alphabet.indexOf(v.plaintext[v.index]);
+        });
 
     constructor(public simpleSubstitution: SimpleSubstitutionService) {
     }
