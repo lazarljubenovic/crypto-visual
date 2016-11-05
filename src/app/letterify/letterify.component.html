@@ -1,9 +1,0 @@
-<ul>
-  <li *ngFor="let letter of word | split; let i = index"
-      (mouseenter)="highlight.emit(i)"
-      (mouseleave)="highlight.emit(-1)"
-      [class.highlight]="i == highlightedLetter"
-  >
-    {{ letter }}
-  </li>
-</ul>

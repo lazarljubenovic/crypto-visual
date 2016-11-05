@@ -34,10 +34,51 @@ export class DoubleTranspositionComponent implements OnInit {
         permutation2: values[3].split('-').map(Number),
     }));
 
-    public afterTransformingToMatrix$: Observable<string[][]>;
-    public afterFirstPermutation$: Observable<string[][]>;
-    public afterSecondPermutation$: Observable<string[][]>;
-    public ciphertext$: Observable<string>;
+    public afterTransformingToMatrix$: Observable<string[][]> = this.inputs$
+        .map(values => {
+            return this.doubleTransposition.toMatrix(
+                values.plaintext,
+                values.rowsFirst ? values.permutation1.length : values.permutation2.length,
+                values.rowsFirst ? values.permutation2.length : values.permutation1.length
+            );
+        });
+
+    public afterFirstPermutation$: Observable<string[][]> = this.inputs$
+        .map(values => {
+            const matrix = this.doubleTransposition.toMatrix(
+                values.plaintext,
+                values.rowsFirst ? values.permutation1.length : values.permutation2.length,
+                values.rowsFirst ? values.permutation2.length : values.permutation1.length
+            );
+            return values.rowsFirst ?
+                this.doubleTransposition.permuteRows(matrix, values.permutation1) :
+                this.doubleTransposition.permuteColumns(matrix, values.permutation1);
+        });
+
+    public afterSecondPermutation$: Observable<string[][]> = this.inputs$
+        .map(values => {
+            const matrix = this.doubleTransposition.toMatrix(
+                values.plaintext,
+                values.rowsFirst ? values.permutation1.length : values.permutation2.length,
+                values.rowsFirst ? values.permutation2.length : values.permutation1.length
+            );
+            const intermediateMatrix = values.rowsFirst ?
+                this.doubleTransposition.permuteRows(matrix, values.permutation1) :
+                this.doubleTransposition.permuteColumns(matrix, values.permutation1);
+            return values.rowsFirst ?
+                this.doubleTransposition.permuteColumns(intermediateMatrix, values.permutation2) :
+                this.doubleTransposition.permuteRows(intermediateMatrix, values.permutation2);
+        });
+
+    public ciphertext$: Observable<string> = this.inputs$
+        .map(values => {
+            return this.doubleTransposition.encrypt(
+                values.plaintext,
+                values.rowsFirst,
+                values.permutation1,
+                values.permutation2
+            );
+        });
 
 
     public permutation0RowLabels$: Observable<number[]> = this.inputs$
@@ -113,51 +154,6 @@ export class DoubleTranspositionComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.afterTransformingToMatrix$ = this.inputs$
-            .map(values => {
-                return this.doubleTransposition.toMatrix(
-                    values.plaintext,
-                    values.rowsFirst ? values.permutation1.length : values.permutation2.length,
-                    values.rowsFirst ? values.permutation2.length : values.permutation1.length
-                );
-            });
-
-        this.afterFirstPermutation$ = this.inputs$
-            .map(values => {
-                const matrix = this.doubleTransposition.toMatrix(
-                    values.plaintext,
-                    values.rowsFirst ? values.permutation1.length : values.permutation2.length,
-                    values.rowsFirst ? values.permutation2.length : values.permutation1.length
-                );
-                return values.rowsFirst ?
-                    this.doubleTransposition.permuteRows(matrix, values.permutation1) :
-                    this.doubleTransposition.permuteColumns(matrix, values.permutation1);
-            });
-
-        this.afterSecondPermutation$ = this.inputs$
-            .map(values => {
-                const matrix = this.doubleTransposition.toMatrix(
-                    values.plaintext,
-                    values.rowsFirst ? values.permutation1.length : values.permutation2.length,
-                    values.rowsFirst ? values.permutation2.length : values.permutation1.length
-                );
-                const intermediateMatrix = values.rowsFirst ?
-                    this.doubleTransposition.permuteRows(matrix, values.permutation1) :
-                    this.doubleTransposition.permuteColumns(matrix, values.permutation1);
-                return values.rowsFirst ?
-                    this.doubleTransposition.permuteColumns(intermediateMatrix, values.permutation2) :
-                    this.doubleTransposition.permuteRows(intermediateMatrix, values.permutation2);
-            });
-
-        this.ciphertext$ = this.inputs$
-            .map(values => {
-                return this.doubleTransposition.encrypt(
-                    values.plaintext,
-                    values.rowsFirst,
-                    values.permutation1,
-                    values.permutation2
-                );
-            });
     }
 
 }

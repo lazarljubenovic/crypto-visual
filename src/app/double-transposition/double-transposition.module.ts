@@ -4,10 +4,11 @@ import {DoubleTranspositionComponent} from "./double-transposition.component";
 import {ReactiveFormsModule} from "@angular/forms";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
-import {LetterifyModule} from "../letterify/letterify.module";
 import {MatrixModule} from "../matrix/matrix.module";
 import {RouterModule} from "@angular/router";
 import {DoubleTranspositionService} from "./double-transposition.service";
+import {ArrayModule} from "../array/array.module";
+import {TableModule} from "../table/table.module";
 
 @NgModule({
     imports: [
@@ -15,8 +16,8 @@ import {DoubleTranspositionService} from "./double-transposition.service";
         ReactiveFormsModule,
         OptionsPanelModule,
         UtilPipesModule,
-        LetterifyModule,
-        MatrixModule,
+        ArrayModule,
+        TableModule,
         RouterModule.forChild([{
             path: '',
             component: DoubleTranspositionComponent,

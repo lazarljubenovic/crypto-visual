@@ -22,33 +22,29 @@
 
 <div id="main-panel">
 
-  <crv-letterify [word]="plaintext.value"
-                 [highlight]="plaintextHighlightIndex$ | async"
-                 (highlight)="onHighlightFromPlaintext($event)"
-  ></crv-letterify>
-
+  <crv-array [data]="plaintext.value | array"></crv-array>
 
   <div class="matrices">
-    <crv-matrix [matrix]="afterTransformingToMatrix$ | async"
-                [colLabels]="permutation0ColLabels$ | async"
-                [rowLabels]="permutation0RowLabels$ | async"
-                [highlight]="cellPositionMatrix0$ | async"
-    ></crv-matrix>
-    <crv-matrix [matrix]="afterFirstPermutation$ | async"
-                [colLabels]="permutation1ColLabels$ | async"
-                [rowLabels]="permutation1RowLabels$ | async"
-                [highlight]="cellPositionMatrix1$ | async"
-    ></crv-matrix>
-    <crv-matrix [matrix]="afterSecondPermutation$ | async"
-                [colLabels]="permutation2ColLabels$ | async"
-                [rowLabels]="permutation2RowLabels$ | async"
-                [highlight]="cellPositionMatrix2$ | async"
-    ></crv-matrix>
   </div>
 
-  <crv-letterify [word]="ciphertext$ | async"
-                 [highlight]="ciphertextHighlightIndex$ | async"
-                 (highlight)="onHighlightFromCipherText($event)"
-  ></crv-letterify>
+  <div class="matrices">
+    <crv-table [data]="afterTransformingToMatrix$ | async"
+               [colLabels]="permutation0ColLabels$ | async"
+               [rowLabels]="permutation0RowLabels$ | async"
+               [highlights]="[cellPositionMatrix0$ | async]"
+    ></crv-table>
+    <crv-table [data]="afterFirstPermutation$ | async"
+               [colLabels]="permutation1ColLabels$ | async"
+               [rowLabels]="permutation1RowLabels$ | async"
+               [highlights]="[cellPositionMatrix1$ | async]"
+    ></crv-table>
+    <crv-table [data]="afterSecondPermutation$ | async"
+               [colLabels]="permutation2ColLabels$ | async"
+               [rowLabels]="permutation2RowLabels$ | async"
+               [highlights]="[cellPositionMatrix2$ | async]"
+    ></crv-table>
+  </div>
+
+  <crv-array [data]="ciphertext$ | async | array"></crv-array>
 
 </div>

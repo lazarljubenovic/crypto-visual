@@ -11,10 +11,10 @@ export class TableComponent implements OnInit {
     public data: any[][] = [[]];
 
     @Input()
-    public rowLabels: string[];
+    public rowLabels: string[] = [];
 
     @Input()
-    public colLabels: string[];
+    public colLabels: string[] = [];
 
     @Input()
     public highlights: number[][] = [];
@@ -43,7 +43,12 @@ export class TableComponent implements OnInit {
 
     public isHighlighted(position: number[]): boolean {
         position = this.matrixIndexToDataIndex(position);
-        return !!this.highlights.find(el => el[0] == position[0] && el[1] == position[1]);
+        // Lord have mercy
+        try {
+            return !!this.highlights.find(el => el[0] == position[0] && el[1] == position[1]);
+        } catch (e) {
+            return false;
+        }
     }
 
     constructor() {

@@ -5,7 +5,6 @@ import {SimpleSubstitutionService} from "./simple-substitution.service";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
-import {LetterifyModule} from "../letterify/letterify.module";
 import {RouterModule} from "@angular/router";
 import {CorrespondencesModule} from "../correspondences/correspondences.module";
 
@@ -15,7 +14,6 @@ import {CorrespondencesModule} from "../correspondences/correspondences.module";
         ReactiveFormsModule,
         OptionsPanelModule,
         UtilPipesModule,
-        LetterifyModule,
         CorrespondencesModule,
         RouterModule.forChild([{
             path: '',
