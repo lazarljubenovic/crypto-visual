@@ -1,0 +1,5 @@
+<table [style.text-align]="align">
+  <tr><td *ngFor="let o of original">{{o}}</td></tr>
+  <tr><td [attr.colspan]="[original.length, mapped.length] | max"></td></tr>
+  <tr><td *ngFor="let m of mapped">{{m}}</td></tr>
+</table>
