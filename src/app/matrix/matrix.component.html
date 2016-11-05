@@ -1,9 +1,0 @@
-<div *ngFor="let row of matrix | matrixWithLabel : colLabels : rowLabels; let i = index"
->
-  <div *ngFor="let cell of row; let j = index"
-       [class.highlight]="highlight && highlight.length == 2 && highlight[0] != -1 && highlight[1] != -1 && i == highlight[0] + 1 && j == highlight[1] + 1"
-       [class.highlight-label]="highlight && highlight.length == 2 && highlight[0] != -1 && highlight[1] != -1 && ((j == 0 && highlight[0] + 1 == i) || (i == 0 && highlight[1] + 1 == j))"
-  >
-    <span>{{ cell }}</span>
-  </div>
-</div>
