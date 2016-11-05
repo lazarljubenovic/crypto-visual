@@ -36,4 +36,7 @@
     <span>im = {{privateKey$ | async}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
     <span>TC = {{transformedCiphertext$ | async}}</span>
   </div>
+  <crv-decryption-block-calculation [superincreasing]="superincreasing$ | async"
+                                    [transformedCipher]="transformedCiphertext$ | async"
+  ></crv-decryption-block-calculation>
 </div>

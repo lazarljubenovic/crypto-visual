@@ -22,7 +22,7 @@ export class KnapsackComponent implements OnInit {
     public modulo: FormControl = new FormControl(491);
     public superincreasing: FormControl = new FormControl(`2 3 7 14 30 57 120 251`);
 
-    public currentLetterIndex$: Subject<number> = new BehaviorSubject<number>(0);
+    public currentLetterIndex$ = new BehaviorSubject<number>(0);
 
     public superincreasing$: Observable<number[]> = this.superincreasing.valueChanges
         .startWith(this.superincreasing.value)
@@ -60,7 +60,7 @@ export class KnapsackComponent implements OnInit {
     });
 
     public transformedCiphertext$: Observable<number> = Observable
-        .combineLatest(this.asciiPlaintext$, this.privateKey$, this.inputs$, this.currentLetterIndex$)
+        .combineLatest(this.ciphertext$, this.privateKey$, this.inputs$, this.currentLetterIndex$)
         .map(v => {
             return this.algorithm
                 .getTransformedCiphertext(v[0][v[3]], v[1], v[2].modulo);

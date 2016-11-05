@@ -1,0 +1,24 @@
+:host {
+  display: block;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+tr:last-child {
+  border-top: solid 1px rgba(black, .07);
+}
+
+td {
+  text-align: center;
+
+  &:nth-child(odd) {
+    width: 3em;
+  }
+
+  &:last-child {
+    width: 4em;
+  }
+}

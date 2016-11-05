@@ -12,6 +12,8 @@ import {TransposePipe} from "./transpose.pipe";
 import {SpaceToNbspPipe} from "./space-to-nbsp.pipe";
 import {GetPipe} from "./get.pipe";
 import {HexadecimalPipe} from "./hexadecimal.pipe";
+import {JoinPipe} from "./join.pipe";
+import {ParseIntPipe} from "./parse-int.pipe";
 
 @NgModule({
     imports: [
@@ -30,6 +32,8 @@ import {HexadecimalPipe} from "./hexadecimal.pipe";
         SpaceToNbspPipe,
         GetPipe,
         HexadecimalPipe,
+        JoinPipe,
+        ParseIntPipe,
     ],
     exports: [
         LengthPipe,
@@ -44,6 +48,8 @@ import {HexadecimalPipe} from "./hexadecimal.pipe";
         SpaceToNbspPipe,
         GetPipe,
         HexadecimalPipe,
+        JoinPipe,
+        ParseIntPipe,
     ],
 })
 export class UtilPipesModule {

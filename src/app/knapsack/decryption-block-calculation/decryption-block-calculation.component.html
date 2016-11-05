@@ -1,3 +1,31 @@
-<p>
-  decryption-block-calculation works!
-</p>
+<table>
+  <tr>
+    <ng-container *ngFor="let da of decreasingArray; let last = last">
+      <td>{{da}}</td>
+      <td *ngIf="!last">&#10229;</td>
+    </ng-container>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>P</td>
+    <td>=</td>
+    <ng-container *ngFor="let si of superincreasing; let last = last">
+      <td>{{si}}</td>
+      <td *ngIf="!last">&nbsp;</td>
+    </ng-container>
+    <td>&nbsp;</td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <ng-container *ngFor="let p of plaintext; let last = last">
+      <td>{{p}}</td>
+      <td *ngIf="!last">&nbsp;</td>
+    </ng-container>
+    <td>
+      (0x{{plaintext | join | parseInt : 2 | hexadecimal | uppercase}})
+    </td>
+  </tr>
+</table>
