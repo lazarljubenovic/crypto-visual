@@ -26,6 +26,10 @@
     </label>
     <label>
       <input type="radio" name="nav" value="6" [(ngModel)]="currentTab">
+      <span>RSA</span>
+    </label>
+    <label>
+      <input type="radio" name="nav" value="7" [(ngModel)]="currentTab">
       <span>Knapsack</span>
     </label>
   </form>
@@ -37,6 +41,7 @@
 <crv-double-transposition *ngIf="currentTab == 3"></crv-double-transposition>
 <crv-rc4-ksa *ngIf="currentTab == 4"></crv-rc4-ksa>
 <crv-rs4-prga *ngIf="currentTab == 5"></crv-rs4-prga>
-<crv-knapsack *ngIf="currentTab == 6"></crv-knapsack>
+<crv-rsa *ngIf="currentTab == 6"></crv-rsa>
+<crv-knapsack *ngIf="currentTab == 7"></crv-knapsack>
 
 <crv-bottom-links></crv-bottom-links>

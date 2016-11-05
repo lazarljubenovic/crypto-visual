@@ -22,6 +22,7 @@ import {Rs4PrgaComponent} from "./rs4-prga/rs4-prga.component";
 import {Rc4PrgaSingleStateComponent} from "./rc4-prga-single-state/rc4-prga-single-state.component";
 import {KnapsackModule} from "./knapsack/knapsack.module";
 import {OptionsPanelModule} from "./options-panel/options-panel.module";
+import {RsaModule} from "./rsa/rsa.module";
 
 @NgModule({
     declarations: [
@@ -45,6 +46,7 @@ import {OptionsPanelModule} from "./options-panel/options-panel.module";
         FormsModule,
         ReactiveFormsModule,
         HttpModule,
+        RsaModule,
         KnapsackModule,
         OptionsPanelModule,
     ],

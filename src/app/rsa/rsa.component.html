@@ -1,0 +1,30 @@
+<crv-options-panel>
+  <label>
+    <span>p</span>
+    <input type="number" [formControl]="p">
+  </label>
+  <label>
+    <span>q</span>
+    <input type="number" [formControl]="q">
+  </label>
+  <label>
+    <span>e</span>
+    <input type="number" [formControl]="e">
+  </label>
+  <label>
+    <span>M</span>
+    <input type="number" [formControl]="M">
+  </label>
+  <label>
+    <span>C</span>
+    <input type="number" [formControl]="C">
+  </label>
+</crv-options-panel>
+
+<div id="main-panel">
+  <div>n = p × q = {{p.value}} × {{q.value}} = {{n$ | async}}</div>
+  <div>φ(n) = (p - 1) × (q - 1) = {{phiN$ | async}}</div>
+  <div>d × e ≡ 1 mod φ(n) => d = {{d$ | async}}</div>
+  <div>C = M<sup>e</sup> mod n = {{M.value}}<sup>{{e.value}}</sup> mod {{n$ | async}} = {{encryption$ | async}}</div>
+  <div>M = C<sup>d</sup> mod n = {{C.value}}<sup>{{d$ | async}}</sup> mod {{n$ | async}} = {{decryption$ | async}}</div>
+</div>
