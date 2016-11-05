@@ -11,22 +11,6 @@
 </crv-options-panel>
 
 <div id="main-panel">
-
-  <div id="plaintext" class="text">
-    {{ plaintext.value }}
-  </div>
-
-  <div id="codebook">
-    <dl>
-      <ng-container *ngFor="let word of map$ | async">
-        <dt>{{ word[0] }}</dt>
-        <dd>{{ word[1] }}</dd>
-      </ng-container>
-    </dl>
-  </div>
-
-  <div id="ciphertext" class="text">
-    {{ ciphertext$ | async }}
-  </div>
-
+  <crv-array [data]="plaintext.value | split : ' '"></crv-array>
+  <crv-array [data]="ciphertext$ | async | split : ' '"></crv-array>
 </div>

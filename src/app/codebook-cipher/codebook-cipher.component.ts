@@ -10,45 +10,32 @@ import {CodebookCipherService} from "./codebook-cipher.service";
 })
 export class CodebookCipherComponent implements OnInit {
 
-    public codebook = new FormControl(`attack => 1t9cd
-at => 8cnd5dp03
+    public codebook = new FormControl(`at => 8cnd5dp03
 dawn => 9ii 
+attack => 1t9cd
 `);
 
     public plaintext = new FormControl(`attack at dawn`);
-    public ciphertext$: Observable<string>;
-
-    public keys$: Observable<string[]>;
-    public values$: Observable<string[]>;
-    public map$: Observable<string[][]>;
+    public ciphertext$: Observable<string> = Observable.combineLatest(
+        this.plaintext.valueChanges
+            .startWith(this.plaintext.value)
+            .debounceTime(100)
+            .distinctUntilChanged(),
+        this.codebook.valueChanges
+            .startWith(this.codebook.value)
+            .debounceTime(100)
+            .distinctUntilChanged())
+        .map(values => {
+            const plaintext = values[0];
+            const codebook = values[1];
+            const ciphertext = this.codebookCipher.encrypt(plaintext, codebook);
+            return ciphertext;
+        });
 
     constructor(public codebookCipher: CodebookCipherService) {
     }
 
     ngOnInit() {
-        this.ciphertext$ = Observable.combineLatest(
-            this.plaintext.valueChanges
-                .startWith(this.plaintext.value)
-                .debounceTime(100)
-                .distinctUntilChanged(),
-            this.codebook.valueChanges
-                .startWith(this.codebook.value)
-                .debounceTime(100)
-                .distinctUntilChanged())
-            .map(values => {
-                const plaintext = values[0];
-                const codebook = values[1];
-                const ciphertext = this.codebookCipher.encrypt(plaintext, codebook);
-                console.log(ciphertext);
-                return ciphertext;
-            });
-
-        this.map$ = this.codebook.valueChanges
-            .startWith(this.codebook.value)
-            .debounceTime(100)
-            .distinctUntilChanged()
-            .map(map => this.codebookCipher.parseMap(map))
-            .map(map => Array.from(map));
     }
 
 }
