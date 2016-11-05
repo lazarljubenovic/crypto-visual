@@ -4,6 +4,7 @@ import {Rs4PrgaComponent} from "./rs4-prga.component";
 import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {Rc4PrgaSingleStateComponent} from "./rc4-prga-single-state/rc4-prga-single-state.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -11,6 +12,10 @@ import {Rc4PrgaSingleStateComponent} from "./rc4-prga-single-state/rc4-prga-sing
         FormsModule,
         ReactiveFormsModule,
         OptionsPanelModule,
+        RouterModule.forChild([{
+            path: '',
+            component: Rs4PrgaComponent,
+        }]),
     ],
     declarations: [
         Rs4PrgaComponent,

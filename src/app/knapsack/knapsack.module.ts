@@ -12,7 +12,8 @@ import {ArrayMapModule} from "../array-map/array-map.module";
 import {CiphertextBlockCalculationComponent} from "./ciphertext-block-calculation/ciphertext-block-calculation.component";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {KnapsackService} from "./knapsack.service";
-import { DecryptionBlockCalculationComponent } from './decryption-block-calculation/decryption-block-calculation.component';
+import {DecryptionBlockCalculationComponent} from "./decryption-block-calculation/decryption-block-calculation.component";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -27,6 +28,10 @@ import { DecryptionBlockCalculationComponent } from './decryption-block-calculat
         ArrayModule,
         ArrayMapModule,
         UtilPipesModule,
+        RouterModule.forChild([{
+            path: '',
+            component: KnapsackComponent,
+        }]),
     ],
     declarations: [
         KnapsackComponent,

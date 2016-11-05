@@ -1,47 +1,30 @@
 <nav>
-  <form>
-    <label>
-      <input type="radio" name="nav" value="0" [(ngModel)]="currentTab">
-      <span>Shift By N</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="1" [(ngModel)]="currentTab">
-      <span>Simple Substitution</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="2" [(ngModel)]="currentTab">
-      <span>Codebook Cipher</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="3" [(ngModel)]="currentTab">
-      <span>Double Transposition</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="4" [(ngModel)]="currentTab">
-      <span>RC4 (KSA)</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="5" [(ngModel)]="currentTab">
-      <span>RC4 (PRGA)</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="6" [(ngModel)]="currentTab">
-      <span>RSA</span>
-    </label>
-    <label>
-      <input type="radio" name="nav" value="7" [(ngModel)]="currentTab">
-      <span>Knapsack</span>
-    </label>
-  </form>
+  <a [routerLink]="['./shift-by-n']">
+    <span>Shift by N</span>
+  </a>
+  <a [routerLink]="['./simple-substitution']">
+    <span>Simple Substitution</span>
+  </a>
+  <a [routerLink]="['./codebook-cipher']">
+    <span>Codebook Cipher</span>
+  </a>
+  <a [routerLink]="['./double-transposition']">
+    <span>Double transposition</span>
+  </a>
+  <a [routerLink]="['./rc4-ksa']">
+    <span>RC4 (KSA)</span>
+  </a>
+  <a [routerLink]="['./rc4-prga']">
+    <span>RC4 (PRGA)</span>
+  </a>
+  <a [routerLink]="['./rsa']">
+    <span>RSA</span>
+  </a>
+  <a [routerLink]="['./knapsack']">
+    <span>Knapsack</span>
+  </a>
 </nav>
 
-<crv-shift-by-n *ngIf="currentTab == 0"></crv-shift-by-n>
-<crv-simple-substitution *ngIf="currentTab == 1"></crv-simple-substitution>
-<crv-codebook-cypher *ngIf="currentTab == 2"></crv-codebook-cypher>
-<crv-double-transposition *ngIf="currentTab == 3"></crv-double-transposition>
-<crv-rc4-ksa *ngIf="currentTab == 4"></crv-rc4-ksa>
-<crv-rs4-prga *ngIf="currentTab == 5"></crv-rs4-prga>
-<crv-rsa *ngIf="currentTab == 6"></crv-rsa>
-<crv-knapsack *ngIf="currentTab == 7"></crv-knapsack>
+<router-outlet></router-outlet>
 
 <crv-bottom-links></crv-bottom-links>

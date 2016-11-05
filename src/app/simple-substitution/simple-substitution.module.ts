@@ -6,6 +6,7 @@ import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {LetterifyModule} from "../letterify/letterify.module";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -14,6 +15,10 @@ import {LetterifyModule} from "../letterify/letterify.module";
         OptionsPanelModule,
         UtilPipesModule,
         LetterifyModule,
+        RouterModule.forChild([{
+            path: '',
+            component: SimpleSubstitutionComponent,
+        }])
     ],
     declarations: [
         SimpleSubstitutionComponent,

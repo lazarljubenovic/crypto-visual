@@ -5,6 +5,7 @@ import {ReactiveFormsModule, FormsModule} from "@angular/forms";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {ShiftByNService} from "./shift-by-n.service";
+import {Routes, RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -13,6 +14,10 @@ import {ShiftByNService} from "./shift-by-n.service";
         FormsModule,
         ReactiveFormsModule,
         UtilPipesModule,
+        RouterModule.forChild([{
+            path: '',
+            component: ShiftByNComponent,
+        }])
     ],
     declarations: [
         ShiftByNComponent,

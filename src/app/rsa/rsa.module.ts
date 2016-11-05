@@ -4,6 +4,7 @@ import {RsaComponent} from "./rsa.component";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {ReactiveFormsModule} from "@angular/forms";
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     imports: [
@@ -11,6 +12,10 @@ import {ReactiveFormsModule} from "@angular/forms";
         ReactiveFormsModule,
         OptionsPanelModule,
         UtilPipesModule,
+        RouterModule.forChild([{
+            path: '',
+            component: RsaComponent,
+        }]),
     ],
     declarations: [
         RsaComponent,

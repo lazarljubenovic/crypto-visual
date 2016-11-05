@@ -10,17 +10,19 @@ nav {
   text-transform: uppercase;
   color: rgba(black, .8);
 
-  label {
-    display: inline-block;
+  a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding: 1em;
     cursor: pointer;
 
     &:hover {
       background-color: rgba(white, .5);
     }
-  }
 
-  input {
-    display: none;
+    span {
+      display: inline-block;
+    }
   }
 }

@@ -6,6 +6,8 @@ import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {LetterifyModule} from "../letterify/letterify.module";
 import {MatrixModule} from "../matrix/matrix.module";
+import {RouterModule} from "@angular/router";
+import {DoubleTranspositionService} from "./double-transposition.service";
 
 @NgModule({
     imports: [
@@ -15,13 +17,20 @@ import {MatrixModule} from "../matrix/matrix.module";
         UtilPipesModule,
         LetterifyModule,
         MatrixModule,
+        RouterModule.forChild([{
+            path: '',
+            component: DoubleTranspositionComponent,
+        }])
     ],
     declarations: [
         DoubleTranspositionComponent,
     ],
     exports: [
         DoubleTranspositionComponent,
-    ]
+    ],
+    providers: [
+        DoubleTranspositionService,
+    ],
 })
 export class DoubleTranspositionModule {
 }
