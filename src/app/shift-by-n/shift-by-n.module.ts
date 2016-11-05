@@ -6,6 +6,7 @@ import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {ShiftByNService} from "./shift-by-n.service";
 import {Routes, RouterModule} from "@angular/router";
+import {CorrespondencesModule} from "../correspondences/correspondences.module";
 
 @NgModule({
     imports: [
@@ -14,6 +15,7 @@ import {Routes, RouterModule} from "@angular/router";
         FormsModule,
         ReactiveFormsModule,
         UtilPipesModule,
+        CorrespondencesModule,
         RouterModule.forChild([{
             path: '',
             component: ShiftByNComponent,

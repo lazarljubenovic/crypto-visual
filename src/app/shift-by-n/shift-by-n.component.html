@@ -11,40 +11,8 @@
 </crv-options-panel>
 
 <div id="main-panel">
-  <ul class="word">
-    <li *ngFor="let letter of plaintext.value | split; let index = index"
-        (mouseenter)="highlightLetter(index)"
-        (mouseleave)="unhighlightLetter(index)"
-        [class.highlight]="index == currentHighlightIndex"
-    >
-      {{letter}}
-    </li>
-  </ul>
-  <div class="mapping">
-    <ul class="alphabet">
-      <li *ngFor="let letter of alphabet"
-          [class.highlight]="plaintext.value[currentHighlightIndex] == letter"
-      >
-        {{letter}}
-      </li>
-    </ul>
-    <ul class="alphabet">
-      <li *ngFor="let letter of shiftedAlphabet | async; let index = index"
-          [class.highlight]="plaintext.value[currentHighlightIndex] == alphabet[index]"
-      >
-        {{letter}}
-      </li>
-    </ul>
-  </div>
-  <ul class="word">
-    <li *ngFor="let letter of ciphertext | async | split; let index = index"
-        (mouseenter)="highlightLetter(index)"
-        (mouseleave)="unhighlightLetter(index)"
-        [class.highlight]="index == currentHighlightIndex"
-    >
-      {{letter}}
-    </li>
-  </ul>
+  <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async | array] | transpose"></crv-correspondences>
+  <crv-correspondences [data]="[alphabet | array, shiftedAlphabet$ | async | array] | transpose"></crv-correspondences>
 </div>
 
 
