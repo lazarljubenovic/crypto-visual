@@ -1,3 +1,4 @@
 <crv-correspondences [data]="data | ascii"
                      [highlight]="highlightIndex"
+                     (focus)="focus$($event.index)"
 ></crv-correspondences>

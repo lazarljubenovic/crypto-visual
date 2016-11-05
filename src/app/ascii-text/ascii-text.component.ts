@@ -1,4 +1,4 @@
-import {Component, OnInit, Input} from "@angular/core";
+import {Component, OnInit, Input, Output, EventEmitter} from "@angular/core";
 
 @Component({
     selector: 'crv-ascii-text',
@@ -12,6 +12,16 @@ export class AsciiTextComponent implements OnInit {
 
     @Input()
     public highlightIndex;
+
+    @Input()
+    public base: number = 16;
+
+    @Output()
+    public focus: EventEmitter<number> = new EventEmitter<number>();
+
+    public focus$(index: number): void {
+        this.focus.emit(index);
+    }
 
     constructor() {
     }
