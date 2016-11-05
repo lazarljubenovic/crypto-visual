@@ -2,6 +2,15 @@
   display: block;
 }
 
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+tr:last-child {
+  border-top: solid 1px rgba(black, .08);
+}
+
 td {
   text-align: center;
 

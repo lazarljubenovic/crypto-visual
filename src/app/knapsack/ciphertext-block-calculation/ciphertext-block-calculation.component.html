@@ -1,16 +1,17 @@
 <table>
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
-    <ng-container *ngFor="let m of mask | binary | padStart : 8 : '0' | array">
+    <td>M</td>
+    <td>=</td>
+    <ng-container *ngFor="let m of mask | binary | padStart : 8 : '0' | array; let last = last">
       <td>{{m}}</td>
-      <td>&nbsp;</td>
+      <td *ngIf="!last">&nbsp;</td>
     </ng-container>
     <td>&nbsp;</td>
+    <td>(0x{{mask.toString(16).toUpperCase()}})</td>
   </tr>
   <tr>
-    <td>&nbsp;</td>
-    <td>&nbsp;</td>
+    <td>J</td>
+    <td>=</td>
     <ng-container *ngFor="let pk of publicKey">
       <td>{{pk}}</td>
       <td>&nbsp;</td>
