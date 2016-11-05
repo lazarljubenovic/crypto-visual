@@ -32,6 +32,8 @@ attack => 1t9cd
             return ciphertext;
         });
 
+    public highlightedIndex: number = -1;
+
     constructor(public codebookCipher: CodebookCipherService) {
     }
 

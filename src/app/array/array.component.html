@@ -1,6 +1,6 @@
 <ul>
   <li *ngFor="let d of data; let index = index"
-      (mouseover)="mouseover$(index)"
+      (mouseover)="focus$(index)"
       [class.highlight]="index == highlight"
   >
     {{d}}

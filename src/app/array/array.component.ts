@@ -14,10 +14,10 @@ export class ArrayComponent implements OnInit {
     public highlight: number = -1;
 
     @Output()
-    public mouseover: EventEmitter<number> = new EventEmitter<number>();
+    public focus: EventEmitter<number> = new EventEmitter<number>();
 
-    public mouseover$(index) {
-        this.mouseover.emit(index);
+    public focus$(index) {
+        this.focus.emit(index);
     }
 
     constructor() {

@@ -11,6 +11,12 @@
 </crv-options-panel>
 
 <div id="main-panel">
-  <crv-array [data]="plaintext.value | split : ' '"></crv-array>
-  <crv-array [data]="ciphertext$ | async | split : ' '"></crv-array>
+  <crv-array [data]="plaintext.value | split : ' '"
+             (focus)="highlightedIndex = $event"
+             [highlight]="highlightedIndex"
+  ></crv-array>
+  <crv-array [data]="ciphertext$ | async | split : ' '"
+             (focus)="highlightedIndex = $event"
+             [highlight]="highlightedIndex"
+  ></crv-array>
 </div>
