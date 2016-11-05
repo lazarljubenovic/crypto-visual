@@ -1,5 +1,5 @@
 import {Component, OnInit} from "@angular/core";
-import {DoubleTranspositionService} from "../double-transposition.service";
+import {DoubleTranspositionService} from "./double-transposition.service";
 import {FormControl} from "@angular/forms";
 import {Observable, Subject} from "rxjs";
 

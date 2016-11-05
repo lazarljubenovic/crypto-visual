@@ -2,8 +2,8 @@ import {Component, OnInit, Input} from "@angular/core";
 
 @Component({
     selector: 'crv-rc4-prga-single-state',
-    templateUrl: './rc4-prga-single-state.component.html',
-    styleUrls: ['./rc4-prga-single-state.component.scss']
+    templateUrl: 'rc4-prga-single-state.component.html',
+    styleUrls: ['rc4-prga-single-state.component.scss']
 })
 export class Rc4PrgaSingleStateComponent implements OnInit {
 

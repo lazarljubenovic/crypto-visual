@@ -1,7 +1,7 @@
 import {Component, OnInit} from "@angular/core";
 import {FormControl} from "@angular/forms";
 import {Observable} from "rxjs";
-import {CodebookCipherService} from "../codebook-cipher.service";
+import {CodebookCipherService} from "./codebook-cipher.service";
 
 @Component({
     selector: 'crv-codebook-cypher',

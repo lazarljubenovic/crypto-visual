@@ -1,6 +1,6 @@
-import {Component, OnInit, OnDestroy} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
 import {Observable} from "rxjs";
-import {ShiftByNService} from "../shift-by-n.service";
+import {ShiftByNService} from "./shift-by-n.service";
 import {FormControl} from "@angular/forms";
 
 @Component({

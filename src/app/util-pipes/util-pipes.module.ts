@@ -14,6 +14,7 @@ import {GetPipe} from "./get.pipe";
 import {HexadecimalPipe} from "./hexadecimal.pipe";
 import {JoinPipe} from "./join.pipe";
 import {ParseIntPipe} from "./parse-int.pipe";
+import {SplitPipe} from "./split.pipe";
 
 @NgModule({
     imports: [
@@ -34,6 +35,7 @@ import {ParseIntPipe} from "./parse-int.pipe";
         HexadecimalPipe,
         JoinPipe,
         ParseIntPipe,
+        SplitPipe,
     ],
     exports: [
         LengthPipe,
@@ -50,6 +52,7 @@ import {ParseIntPipe} from "./parse-int.pipe";
         HexadecimalPipe,
         JoinPipe,
         ParseIntPipe,
+        SplitPipe,
     ],
 })
 export class UtilPipesModule {
