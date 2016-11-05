@@ -1,10 +1,10 @@
 import {NgModule} from "@angular/core";
 import {CommonModule} from "@angular/common";
-import {CodebookCypherComponent} from "./codebook-cypher.component";
 import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {ReactiveFormsModule} from "@angular/forms";
 import {RouterModule} from "@angular/router";
 import {CodebookCipherService} from "./codebook-cipher.service";
+import {CodebookCipherComponent} from "./codebook-cipher.component";
 
 @NgModule({
     imports: [
@@ -13,18 +13,18 @@ import {CodebookCipherService} from "./codebook-cipher.service";
         OptionsPanelModule,
         RouterModule.forChild([{
             path: '',
-            component: CodebookCypherComponent,
+            component: CodebookCipherComponent,
         }])
     ],
     declarations: [
-        CodebookCypherComponent,
+        CodebookCipherComponent,
     ],
     exports: [
-        CodebookCypherComponent,
+        CodebookCipherComponent,
     ],
     providers: [
         CodebookCipherService,
     ]
 })
-export class CodebookCypherModule {
+export class CodebookCipherModule {
 }

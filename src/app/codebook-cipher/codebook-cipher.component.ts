@@ -4,11 +4,11 @@ import {Observable} from "rxjs";
 import {CodebookCipherService} from "./codebook-cipher.service";
 
 @Component({
-    selector: 'crv-codebook-cypher',
-    templateUrl: './codebook-cypher.component.html',
-    styleUrls: ['./codebook-cypher.component.scss']
+    selector: 'crv-codebook-cipher',
+    templateUrl: './codebook-cipher.component.html',
+    styleUrls: ['./codebook-cipher.component.scss']
 })
-export class CodebookCypherComponent implements OnInit {
+export class CodebookCipherComponent implements OnInit {
 
     public codebook = new FormControl(`attack => 1t9cd
 at => 8cnd5dp03
