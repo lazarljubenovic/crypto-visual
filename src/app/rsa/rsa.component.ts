@@ -61,10 +61,10 @@ export class RsaComponent implements OnInit {
 
     public decryption$: Observable<number> = Observable.combineLatest(
         this.C.valueChanges.startWith(this.C.value),
-        this.inputs$,
+        this.d$,
         this.n$
     )
-        .map(v => ({C: v[0], d: v[1].d, n: v[2]}))
+        .map(v => ({C: v[0], d: v[1], n: v[2]}))
         .map(v => {
             let decryptionResult: number = 1;
             for (let i = 0; i < v.d; i++) {
