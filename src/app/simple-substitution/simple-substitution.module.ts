@@ -4,16 +4,16 @@ import {SimpleSubstitutionComponent} from "./simple-substitution.component";
 import {SimpleSubstitutionService} from "./simple-substitution.service";
 import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {ReactiveFormsModule} from "@angular/forms";
-import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {RouterModule} from "@angular/router";
 import {CorrespondencesModule} from "../correspondences/correspondences.module";
+import {VisualisationModule} from "../visualisation/visualisation.module";
 
 @NgModule({
     imports: [
         CommonModule,
         ReactiveFormsModule,
-        OptionsPanelModule,
         UtilPipesModule,
+        VisualisationModule,
         CorrespondencesModule,
         RouterModule.forChild([{
             path: '',

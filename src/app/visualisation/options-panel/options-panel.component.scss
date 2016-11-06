@@ -2,24 +2,25 @@ crv-options-panel {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   padding: 1em;
   background-color: rgba(black, .02);
   border-right: solid 1px rgba(black, .1);
-
-  > *:not(:last-child) {
-    margin-bottom: 2.5em;
-  }
 
   label {
     width: 100%;
     display: flex;
     flex-direction: column;
 
+    &:not(:last-child) {
+      margin-bottom: 1.5em;
+    }
+
     span {
+      display: inline-block;
+      width: 100%;
       color: rgba(black, .6);
       font-size: .8em;
-      display: inline-block;
       margin-bottom: 1ex;
     }
 

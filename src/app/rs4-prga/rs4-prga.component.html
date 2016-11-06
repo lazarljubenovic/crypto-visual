@@ -1,19 +1,22 @@
-<crv-options-panel>
-  <label>
-    <span>Plaintext</span>
-    <input type="text" [formControl]="plaintext">
-  </label>
-  <label>
-    <span>Permutation</span>
-    <input type="text" [formControl]="permutation">
-  </label>
-  <label>
-    <span>Current state</span>
-    <input type="number" [attr.min]="0" [attr.max]="(states$ | async).length - 1" [(ngModel)]="currentState">
-  </label>
-</crv-options-panel>
+<crv-visualisation>
+  <crv-options-panel>
+    <label>
+      <span>Plaintext</span>
+      <input type="text" [formControl]="plaintext">
+    </label>
+    <label>
+      <span>Permutation</span>
+      <input type="text" [formControl]="permutation">
+    </label>
+    <label>
+      <span>Current state</span>
+      <input type="number" [attr.min]="0" [attr.max]="(states$ | async).length - 1"
+             [(ngModel)]="currentState">
+    </label>
+  </crv-options-panel>
 
-<div id="main-panel">
-  <crv-rc4-prga-single-state [state]="(states$ | async)[currentState]"
-  ></crv-rc4-prga-single-state>
-</div>
+  <crv-playground>
+    <crv-rc4-prga-single-state [state]="(states$ | async)[currentState]"
+    ></crv-rc4-prga-single-state>
+  </crv-playground>
+</crv-visualisation>

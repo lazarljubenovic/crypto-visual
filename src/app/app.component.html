@@ -1,14 +1,16 @@
-<nav>
-  <a [routerLink]="['./shift-by-n']"><span>Shift by N</span></a>
-  <a [routerLink]="['./simple-substitution']"><span>Simple Substitution</span></a>
-  <a [routerLink]="['./codebook-cipher']"><span>Codebook Cipher</span></a>
-  <a [routerLink]="['./double-transposition']"><span>Double transposition</span></a>
-  <a [routerLink]="['./rc4-ksa']"><span>RC4 (KSA)</span></a>
-  <a [routerLink]="['./rc4-prga']"><span>RC4 (PRGA)</span></a>
-  <a [routerLink]="['./rsa']"><span>RSA</span></a>
-  <a [routerLink]="['./knapsack']"><span>Knapsack</span></a>
-</nav>
+<aside>
+  <nav>
+    <a [routerLink]="['./shift-by-n']"><span>Shift by N</span></a>
+    <a [routerLink]="['./simple-substitution']"><span>Simple Substitution</span></a>
+    <a [routerLink]="['./codebook-cipher']"><span>Codebook Cipher</span></a>
+    <a [routerLink]="['./double-transposition']"><span>Double transposition</span></a>
+    <a [routerLink]="['./rc4-ksa']"><span>RC4 (KSA)</span></a>
+    <a [routerLink]="['./rc4-prga']"><span>RC4 (PRGA)</span></a>
+    <a [routerLink]="['./rsa']"><span>RSA</span></a>
+    <a [routerLink]="['./knapsack']"><span>Knapsack</span></a>
+  </nav>
+  <crv-bottom-links></crv-bottom-links>
+</aside>
+
 
 <router-outlet></router-outlet>
-
-<crv-bottom-links></crv-bottom-links>

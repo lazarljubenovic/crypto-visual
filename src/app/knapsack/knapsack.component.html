@@ -1,42 +1,45 @@
-<crv-options-panel>
-  <label>
-    <span>Text</span>
-    <textarea rows="10" [formControl]="plaintext"></textarea>
-  </label>
-  <label>
-    <span>Multiplier</span>
-    <input type="number" [formControl]="multiplier">
-  </label>
-  <label>
-    <span>Superincreasing array</span>
-    <input type="text" [formControl]="superincreasing">
-  </label>
-  <label>
-    <span>Modulo</span>
-    <input type="number" [formControl]="modulo">
-  </label>
-</crv-options-panel>
+<crv-visualisation>
+  <crv-options-panel>
+    <label>
+      <span>Text</span>
+      <textarea rows="10" [formControl]="plaintext"></textarea>
+    </label>
+    <label>
+      <span>Multiplier</span>
+      <input type="number" [formControl]="multiplier">
+    </label>
+    <label>
+      <span>Superincreasing array</span>
+      <input type="text" [formControl]="superincreasing">
+    </label>
+    <label>
+      <span>Modulo</span>
+      <input type="number" [formControl]="modulo">
+    </label>
+  </crv-options-panel>
 
-<div id="main-panel">
-  <crv-array-map [original]="superincreasing$ | async"
-                 [mapped]="publicKey$ | async"
-  ></crv-array-map>
-  <crv-ascii-text [data]="plaintext.value"
-                  (focus)="currentLetterIndex$.next($event)"
-                  [highlightIndex]="currentLetterIndex$ | async"
-  ></crv-ascii-text>
-  <crv-ciphertext-block-calculation [mask]="asciiPlaintext$ | async | get : (currentLetterIndex$ | async)"
-                                    [publicKey]="publicKey$ | async"
-  ></crv-ciphertext-block-calculation>
-  <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async] | transpose"
-                       [highlight]="currentLetterIndex$ | async"
-                       (focus)="currentLetterIndex$.next($event.index)"
-  ></crv-correspondences>
-  <div>
-    <span>im = {{privateKey$ | async}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
-    <span>TC = {{transformedCiphertext$ | async}}</span>
-  </div>
-  <crv-decryption-block-calculation [superincreasing]="superincreasing$ | async"
-                                    [transformedCipher]="transformedCiphertext$ | async"
-  ></crv-decryption-block-calculation>
-</div>
+  <crv-playground>
+    <crv-array-map [original]="superincreasing$ | async"
+                   [mapped]="publicKey$ | async"
+    ></crv-array-map>
+    <crv-ascii-text [data]="plaintext.value"
+                    (focus)="currentLetterIndex$.next($event)"
+                    [highlightIndex]="currentLetterIndex$ | async"
+    ></crv-ascii-text>
+    <crv-ciphertext-block-calculation
+            [mask]="asciiPlaintext$ | async | get : (currentLetterIndex$ | async)"
+            [publicKey]="publicKey$ | async"
+    ></crv-ciphertext-block-calculation>
+    <crv-correspondences [data]="[plaintext.value | array, ciphertext$ | async] | transpose"
+                         [highlight]="currentLetterIndex$ | async"
+                         (focus)="currentLetterIndex$.next($event.index)"
+    ></crv-correspondences>
+    <div>
+      <span>im = {{privateKey$ | async}}</span>&nbsp;&nbsp;&nbsp;&nbsp;
+      <span>TC = {{transformedCiphertext$ | async}}</span>
+    </div>
+    <crv-decryption-block-calculation [superincreasing]="superincreasing$ | async"
+                                      [transformedCipher]="transformedCiphertext$ | async"
+    ></crv-decryption-block-calculation>
+  </crv-playground>
+</crv-visualisation>

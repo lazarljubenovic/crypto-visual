@@ -5,7 +5,6 @@ import {TableModule} from "../table/table.module";
 import {CorrespondencesModule} from "../correspondences/correspondences.module";
 import {MemoryModule} from "../memory/memory.module";
 import {AsciiTextModule} from "../ascii-text/ascii-text.module";
-import {OptionsPanelModule} from "../options-panel/options-panel.module";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ArrayModule} from "../array/array.module";
 import {ArrayMapModule} from "../array-map/array-map.module";
@@ -14,6 +13,7 @@ import {UtilPipesModule} from "../util-pipes/util-pipes.module";
 import {KnapsackService} from "./knapsack.service";
 import {DecryptionBlockCalculationComponent} from "./decryption-block-calculation/decryption-block-calculation.component";
 import {RouterModule} from "@angular/router";
+import {VisualisationModule} from "../visualisation/visualisation.module";
 
 @NgModule({
     imports: [
@@ -24,7 +24,7 @@ import {RouterModule} from "@angular/router";
         CorrespondencesModule,
         MemoryModule,
         AsciiTextModule,
-        OptionsPanelModule,
+        VisualisationModule,
         ArrayModule,
         ArrayMapModule,
         UtilPipesModule,

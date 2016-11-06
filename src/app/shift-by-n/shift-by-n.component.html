@@ -1,26 +1,26 @@
-<crv-options-panel>
-  <label>
-    <span>Plaintext</span>
-    <input id="plaintext" type="text" [formControl]="plaintext">
-  </label>
+<crv-visualisation>
+  <crv-options-panel>
+    <label>
+      <span>Plaintext</span>
+      <input id="plaintext" type="text" [formControl]="plaintext">
+    </label>
 
-  <label>
-    <span>Key (offset)</span>
-    <input type="number" [formControl]="key">
-  </label>
-</crv-options-panel>
+    <label>
+      <span>Key (offset)</span>
+      <input type="number" [formControl]="key">
+    </label>
+  </crv-options-panel>
 
-<div id="main-panel">
-  <crv-correspondences
-          [data]="[plaintext.value | array, ciphertext$ | async | array] | transpose"
-          [highlight]="currentHighlightIndex$ | async"
-          (focus)="currentHighlightIndex$.next($event.index)"
-  ></crv-correspondences>
+  <crv-playground>
+    <crv-correspondences
+            [data]="[plaintext.value | array, ciphertext$ | async | array] | transpose"
+            [highlight]="currentHighlightIndex$ | async"
+            (focus)="currentHighlightIndex$.next($event.index)"
+    ></crv-correspondences>
 
-  <crv-correspondences
-          [data]="[alphabet | array, shiftedAlphabet$ | async | array] | transpose"
-          [highlight]="currentHighlightedAlphabetIndex | async"
-  ></crv-correspondences>
-</div>
-
-
+    <crv-correspondences
+            [data]="[alphabet | array, shiftedAlphabet$ | async | array] | transpose"
+            [highlight]="currentHighlightedAlphabetIndex | async"
+    ></crv-correspondences>
+  </crv-playground>
+</crv-visualisation>

@@ -1,55 +1,52 @@
-<crv-options-panel>
-  <label>
-    <span>Plaintext</span>
-    <input type="text" [formControl]="plaintext">
-  </label>
+<crv-visualisation>
+  <crv-options-panel>
+    <label>
+      <span>Plaintext</span>
+      <input type="text" [formControl]="plaintext">
+    </label>
+    <label>
+      <input type="checkbox" [formControl]="rowsFirst">
+      <span>Rows first</span>
+    </label>
+    <label>
+      <span>First permutation</span>
+      <input type="text" [formControl]="permutation1">
+    </label>
+    <label>
+      <span>Second permutation</span>
+      <input type="text" [formControl]="permutation2">
+    </label>
+  </crv-options-panel>
 
-  <label>
-    <input type="checkbox" [formControl]="rowsFirst">
-    <span>Rows first</span>
-  </label>
+  <crv-playground>
+    <crv-array [data]="plaintext.value | array"
+               [highlight]="plaintextHighlightIndex$ | async"
+               (focus)="plaintextHighlightIndex$.next($event)"
+    ></crv-array>
 
-  <label>
-    <span>First permutation</span>
-    <input type="text" [formControl]="permutation1">
-  </label>
+    <div class="matrices">
+    </div>
 
-  <label>
-    <span>Second permutation</span>
-    <input type="text" [formControl]="permutation2">
-  </label>
-</crv-options-panel>
+    <div class="matrices">
+      <crv-table [data]="afterTransformingToMatrix$ | async"
+                 [colLabels]="permutation0ColLabels$ | async"
+                 [rowLabels]="permutation0RowLabels$ | async"
+                 [highlights]="[cellPositionMatrix0$ | async]"
+      ></crv-table>
+      <crv-table [data]="afterFirstPermutation$ | async"
+                 [colLabels]="permutation1ColLabels$ | async"
+                 [rowLabels]="permutation1RowLabels$ | async"
+                 [highlights]="[cellPositionMatrix1$ | async]"
+      ></crv-table>
+      <crv-table [data]="afterSecondPermutation$ | async"
+                 [colLabels]="permutation2ColLabels$ | async"
+                 [rowLabels]="permutation2RowLabels$ | async"
+                 [highlights]="[cellPositionMatrix2$ | async]"
+      ></crv-table>
+    </div>
 
-<div id="main-panel">
-
-  <crv-array [data]="plaintext.value | array"
-             [highlight]="plaintextHighlightIndex$ | async"
-             (focus)="plaintextHighlightIndex$.next($event)"
-  ></crv-array>
-
-  <div class="matrices">
-  </div>
-
-  <div class="matrices">
-    <crv-table [data]="afterTransformingToMatrix$ | async"
-               [colLabels]="permutation0ColLabels$ | async"
-               [rowLabels]="permutation0RowLabels$ | async"
-               [highlights]="[cellPositionMatrix0$ | async]"
-    ></crv-table>
-    <crv-table [data]="afterFirstPermutation$ | async"
-               [colLabels]="permutation1ColLabels$ | async"
-               [rowLabels]="permutation1RowLabels$ | async"
-               [highlights]="[cellPositionMatrix1$ | async]"
-    ></crv-table>
-    <crv-table [data]="afterSecondPermutation$ | async"
-               [colLabels]="permutation2ColLabels$ | async"
-               [rowLabels]="permutation2RowLabels$ | async"
-               [highlights]="[cellPositionMatrix2$ | async]"
-    ></crv-table>
-  </div>
-
-  <crv-array [data]="ciphertext$ | async | array"
-             [highlight]="ciphertextHighlightIndex$ | async"
-  ></crv-array>
-
-</div>
+    <crv-array [data]="ciphertext$ | async | array"
+               [highlight]="ciphertextHighlightIndex$ | async"
+    ></crv-array>
+  </crv-playground>
+</crv-visualisation>
